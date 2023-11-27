@@ -1,9 +1,13 @@
 import 'package:app_cubit_clean_architecture/core/res/colours.dart';
 import 'package:app_cubit_clean_architecture/core/res/fonts.dart';
+import 'package:app_cubit_clean_architecture/core/services/injection_container.dart';
 import 'package:app_cubit_clean_architecture/core/services/route.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
+
   runApp(const MyApp());
 }
 
