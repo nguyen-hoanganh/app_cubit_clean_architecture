@@ -9,8 +9,20 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<OnBoardingCubit, OnBoardingState>(
-      listener: (context, state) {},
+    return Scaffold(
+      body: BlocConsumer<OnBoardingCubit, OnBoardingState>(
+        listener: (context, state) {
+          if(state is OnBoardingState) {
+            Navigator.pushReplacementNamed(context, '/home');
+          }
+        },
+        builder: (context, state) {
+          if(state is CheckingIfUserIsFirstTimer){
+            return Container();
+          }
+          return Container();
+        },
+      ),
     );
   }
 }
