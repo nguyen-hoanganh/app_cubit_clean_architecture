@@ -10,11 +10,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  final prefs = SharedPreferences.getInstance();
+  final prefs = await SharedPreferences.getInstance();
+  // Feature --> OnBoarding
+  // Business Logic
   sl
     ..registerFactory(
       () => OnBoardingCubit(
-        cachingFirstTimer: sl(),
+        cacheFirstTimer: sl(),
         checkIfUserIsFirstTimer: sl(),
       ),
     )
@@ -22,6 +24,7 @@ Future<void> init() async {
     ..registerLazySingleton(() => CheckIfUserIsFirstTimer(sl()))
     ..registerLazySingleton<OnBoardingRepo>(() => OnBoardingRepoImpl(sl()))
     ..registerLazySingleton<OnBoardingLocalDataSource>(
-        () => OnBoardingLocalDataSrcImpl(sl()))
+      () => OnBoardingLocalDataSrcImpl(sl()),
+    )
     ..registerLazySingleton(() => prefs);
 }
