@@ -1,10 +1,13 @@
 import 'package:app_cubit_clean_architecture/core/res/colours.dart';
 import 'package:app_cubit_clean_architecture/core/res/fonts.dart';
+import 'package:app_cubit_clean_architecture/core/services/injection_container.dart';
 import 'package:app_cubit_clean_architecture/core/services/route.dart';
-import 'package:app_cubit_clean_architecture/src/on_boarding/presentation/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
+
   runApp(const MyApp());
 }
 
@@ -20,8 +23,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(accentColor: Colours.primaryColour),
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        appBarTheme:const  AppBarTheme(
-          color:  Colors.transparent,
+        appBarTheme: const AppBarTheme(
+          color: Colors.transparent,
         ),
         fontFamily: Fonts.poppins,
       ),
