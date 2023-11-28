@@ -1,7 +1,5 @@
-import 'dart:math';
 
 import 'package:app_cubit_clean_architecture/core/errors/exceptions.dart';
-import 'package:app_cubit_clean_architecture/src/on_boarding/data/repos/on_boarding_repo_impl.dart';
 import 'package:app_cubit_clean_architecture/src/on_boarding/datasources/on_boarding_local_data_source.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -46,14 +44,13 @@ void main() {
   });
 
   group('checkIfUserIsFirstTimer', () {
-    late OnBoardingRepoImpl repoImpl;
     test(
       'should call [SharedPreferences] to check if user is first timer and '
       'return the right response from storage when data exists',
       () async {
         when(() => prefs.getBool(any())).thenReturn(false);
 
-        final result = await repoImpl.cacheFirstTimer();
+        final result = await localDataSource.checkIfUserIsFirstTimer();
 
         expect(result, false);
 
