@@ -14,6 +14,7 @@ void main() {
     repo = MockAuthRepo();
     usecase = UpdateUser(repo);
     registerFallbackValue(UpdateUserAction.email);
+  });
 
   test(
     'should call the [AuthRepo]',
