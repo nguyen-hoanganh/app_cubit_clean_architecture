@@ -9,18 +9,29 @@ Future<void> init() async {
 
 Future<void> _initAuth() async {
   sl
+    ..registerFactory(
+      () => AuthBloc(
+        signIn: sl(),
+        signUp: sl(),
+        forgotPassword: sl(),
+        updateUser: sl(),
+      ),
+    )
     ..registerLazySingleton(() => SignIn(sl()))
     ..registerLazySingleton(() => SignUp(sl()))
-    ..registerLazySingleton(() => ForgotPassword(sl()))
+    ..registerLazySingleton(() => ForgotPasswords(sl()))
     ..registerLazySingleton(() => UpdateUser(sl()))
     ..registerLazySingleton<AuthRepo>(() => AuthRepoImpl(sl()))
-    ..registerLazySingleton<AuthRemoteDataSourceImpl>(
+    ..registerLazySingleton<AuthRemoteDataSource>(
       () => AuthRemoteDataSourceImpl(
         authClient: sl(),
         cloudStoreClient: sl(),
         dbClient: sl(),
       ),
-    );
+    )
+    ..registerLazySingleton(() => FirebaseAuth.instance)
+    ..registerLazySingleton(() => FirebaseFirestore.instance)
+    ..registerLazySingleton(() => FirebaseStorage.instance);
 }
 
 Future<void> _initOnBoarding() async {

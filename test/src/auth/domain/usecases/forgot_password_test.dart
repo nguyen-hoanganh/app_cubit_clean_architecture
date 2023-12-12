@@ -7,11 +7,11 @@ import 'auth_repo.mock.dart';
 
 void main() {
   late MockAuthRepo repo;
-  late ForgotPassword usecase;
+  late ForgotPasswords usecase;
 
   setUp(() {
     repo = MockAuthRepo();
-    usecase = ForgotPassword(repo);
+    usecase = ForgotPasswords(repo);
   });
 
   test(
