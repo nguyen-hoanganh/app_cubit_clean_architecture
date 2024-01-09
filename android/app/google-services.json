@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "190415831776",
+    "project_id": "education-app-ccd05",
+    "storage_bucket": "education-app-ccd05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190415831776:android:6933c61da6b47b418cc685",
+        "android_client_info": {
+          "package_name": "com.example.app_cubit_clean_architecture"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUwksB7WgUTxErQ7cfBvOPHNEjL7W5IMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
