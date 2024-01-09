@@ -38,12 +38,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           listener: (context, state) {
             if (state is OnBoardingStatus && !state.isFirstTimer) {
               Navigator.pushReplacementNamed(context, '/home');
-            }  else if (state is UserCached) {
-              //todo something
+            } else if (state is UserCached) {
+              Navigator.pushReplacementNamed(context, '/');
             }
           },
           builder: (context, state) {
-            if (state is CheckingIfUserIsFirstTimer || state is CacheFirstTimer) {
+            if (state is CheckingIfUserIsFirstTimer ||
+                state is CacheFirstTimer) {
               return const LoadingView();
             }
             return Stack(
